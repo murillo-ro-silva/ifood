@@ -103,15 +103,6 @@ def dedup_dataframe(pk_col, max_col, dataframe):
     return DF_DEDUP
 
 
-# def write_trusted(dataframe, repartition, partition, dataset):
-#     """
-#     Def for saving dataframes in trusted zone.
-#     """
-#     PATH = path_read_write("trusted", dataset)
-
-#     dataframe.repartition(repartition) \
-#         .write.parquet(PATH, mode="overwrite", partitionBy=partition)
-
 def checking_quality(actual, previous):
     """
     :param actual: number of records comming from last trusted zone.

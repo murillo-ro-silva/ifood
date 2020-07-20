@@ -47,6 +47,7 @@ Save: It was saved partitioned today date in `trusted` zone with called `order_s
 #### Some other points:
 * The cpf column was hashed using sha2 256 for encrypt.
 * The phone column was hashed using a simple count(value * 5 / 2).
+* If the current dataset is 80% different from the previous one, then the current dataset is not saved in the Trusted zone.
 
 ### Evaluator Credentials:
 The evaluator can access AWS account for verifying the test through:
