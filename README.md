@@ -14,7 +14,7 @@ The script for convert source data to parquet is called `etl_transient_to_raw.py
 
 The result is all files are saved in "parquet" in the Raw zone of lake.
 
-![bucket-raw]((prints/aws2.png)
+![bucket-raw](prints/aws2.png)
 
 2. Raw to Trusted:
 
@@ -42,7 +42,7 @@ Source: `trusted.order + raw.status`
 Process: It was create view using spark sql.
 Save: It was saved partitioned today date in `trusted` zone with called `order_statuses` dateset.
 
-![bucket-trusted]((prints/aws3.png)
+![bucket-trusted](prints/aws3.png)
 
 #### Some other points:
 * The cpf column was hashed using sha2 256 for encrypt.
