@@ -72,20 +72,20 @@ The result is all files are saved in "parquet" in the Raw zone of lake.
 ### 2. Raw to Trusted:
 
 #### Order:
-Source: `raw.order + raw.consumer + raw.restaurant`
-Deduplication: First `raw.order` and then `raw.status` (raw.restaurant had no duplicated items)
-Anonymize: cpf and *customer_phone_number*
-Save: Partitioned the dataset with the day execution in the `trusted` zone with called `order` dataset.
+- Source: `raw.order + raw.consumer + raw.restaurant`
+- Process: Deduplication `raw.order` and then `raw.status` (raw.restaurant had no duplicated items)
+- Anonymize: cpf and *customer_phone_number*
+- Save: Partitioned the dataset with the day execution in the `trusted` zone with called `order` dataset.
 
 #### Order Items:
-Source: `trusted.order`
-Process: Inferred schema in `items` column, exploded items and garnish.
-Save: Partitioned the dataset with the day execution in the `trusted` zone with called `order_items` dateset.
+- Source: `trusted.order`
+- Process: Inferred schema in `items` column, exploded items and garnish.
+- Save: Partitioned the dataset with the day execution in the `trusted` zone with called `order_items` dateset.
 
 #### Order Statuses:
-Source: `trusted.order + raw.status`
-Process: Created view using spark sql.
-Save: Partitioned the dataset with the day execution in the `trusted` zone with called `order_statuses` dateset.
+- Source: `trusted.order + raw.status`
+- Process: Created view using spark sql.
+- Save: Partitioned the dataset with the day execution in the `trusted` zone with called `order_statuses` dateset.
 
 ![bucket-trusted](prints/aws3.png)
 
