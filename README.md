@@ -8,6 +8,50 @@ To be able to test the process, a free AWS account was created with necessary us
 
 Check out: [Here](https://github.com/ifood/ifood-data-architect-test)
 
+## Getting Started
+
+Step by step are:
+
+* Setup your local machine with virtualenv
+
+```bash
+$ sudo apt-get install python-virtualenv
+
+$ virtualenv -p python3 ~/Documents/ifood_test
+
+$ . ~/Documents/ifood_test/bin/activate
+```
+
+After install and activate the virtual env, please folow:
+
+```bash
+$ pip install pyspark==2.4.6
+
+$ pip install ipykernel
+
+$ ipython kernel install --user --name="ifood_seu_lindo"
+```
+
+* Open your local Jupyter.
+
+If you don't have installed, please install:
+```bash
+$ pip install jupyterlab
+```
+
+```bash
+$ jupyter lab
+```
+Acess your web browser, and then acess`http://localhost:8888/lab`
+
+Open file `dev_notebook.ypynb` or `prod_notebook.ipynb`
+
+Select kernel `ifood_seu_lindo`
+![parametters](prints/ikernel.png)
+
+Execute cell by cell as you wish.
+
+
 ## The test consist in two parts.
   
 1. Source(transient) to Raw:
