@@ -58,7 +58,7 @@ Execute cell by cell as you wish.
 I created the "production" solution in Aws Glue, but there's several ways to do that.
 
 
-**1. Source(transient) to Raw:**
+### 1. Source(transient) to Raw:
 
 The script for convert source data to parquet is called `etl_transient_to_raw.py`, it's possible to parametter the dataset name and type(csv or json) for starting the convert.
 
@@ -69,7 +69,7 @@ The result is all files are saved in "parquet" in the Raw zone of lake.
 ![bucket-raw](prints/aws2.png)
 
 
-**2. Raw to Trusted:**
+### 2. Raw to Trusted:
 
 #### Order:
 Source: `raw.order + raw.consumer + raw.restaurant`
