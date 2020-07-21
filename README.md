@@ -1,10 +1,14 @@
 # iFood Data Architect Test Solve
 
-All the process was development using AWS.
+The process was development using AWS.
 
-Firts of all, everthing starts with creation AWS Free, after that, I created all rules and users.
+To be able to test the process, a free AWS account was created with necessary users and rules.
 
-## Basically the test consist in two parts
+## Requeriments
+
+Check out: [Here](https://github.com/ifood/ifood-data-architect-test)
+
+## The test consist in two parts.
   
 1. Source(transient) to Raw:
 
@@ -18,36 +22,28 @@ The result is all files are saved in "parquet" in the Raw zone of lake.
 
 2. Raw to Trusted:
 
-the script follows these requirements:
-
-* Order dataset - one line per order with all data from order, consumer, restaurant and the LAST status from order statuses dataset. To help analysis, it would be a nice to have: data partitioned on the restaurant LOCAL date.
-
-* Order Items dataset - easy to read dataset with one-to-many relationship with Order dataset. Must contain all data from order items column.
-
-* Order statuses - Dataset containing one line per order with the timestamp for each registered event: CONCLUDED, REGISTERED, CANCELLED, PLACED.
-
 #### Order:
 Source: `raw.order + raw.consumer + raw.restaurant`
 Deduplication: First `raw.order` and then `raw.status` (raw.restaurant had no duplicated items)
 Anonymize: cpf and *customer_phone_number*
-Save: It was saved partitioned today date in `trusted` zone with called `order` dataset.
+Save: Partitioned the dataset with the day execution in the `trusted` zone with called `order` dataset.
 
 #### Order Items:
 Source: `trusted.order`
-Process: It was inferred schema in `items` column, exploded items and garnish.
-Save: It was saved partitioned today date in `trusted` zone with called `order_items` dateset.
+Process: Inferred schema in `items` column, exploded items and garnish.
+Save: Partitioned the dataset with the day execution in the `trusted` zone with called `order_items` dateset.
 
 #### Order Statuses:
 Source: `trusted.order + raw.status`
-Process: It was create view using spark sql.
-Save: It was saved partitioned today date in `trusted` zone with called `order_statuses` dateset.
+Process: Created view using spark sql.
+Save: Partitioned the dataset with the day execution in the `trusted` zone with called `order_statuses` dateset.
 
 ![bucket-trusted](prints/aws3.png)
 
 #### Some other points:
 * The cpf column was hashed using sha2 256 for encrypt.
 * The phone column was hashed using a simple count(value * 5 / 2).
-* If the current dataset is 80% different from the previous one, then the current dataset is not saved in the Trusted zone.
+* If the current dataset is 80% lower from the previous one, then the current dataset is not saved in the Trusted zone.
 
 ### Evaluator Credentials:
 The evaluator can access AWS account for verifying the test through:
