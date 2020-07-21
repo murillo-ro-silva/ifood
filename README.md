@@ -8,6 +8,7 @@ To be able to test the process, a free AWS account was created with necessary us
 
 Check out: [Here](https://github.com/ifood/ifood-data-architect-test)
 
+<<<<<<< HEAD
 ## Getting Started
 
 Step by step are:
@@ -52,6 +53,8 @@ Select kernel `ifood_seu_lindo`
 Execute cell by cell as you wish.
 
 
+=======
+>>>>>>> 9cc0ee702bc3ea53bc15bb7fe3ae4d07e9a87edb
 ## The test consist in two parts.
   
 1. Source(transient) to Raw:
