@@ -4,13 +4,13 @@ The process was development using AWS.
 
 To be able to test the process, a free AWS account was created with necessary users and rules.
 
-## Requeriments
+## Test Requeriments
 
 Check out: [Here](https://github.com/ifood/ifood-data-architect-test)
 
 ## Getting Started
 
-Step by step are:
+The step by step are:
 
 * Setup your local machine with virtualenv
 
@@ -34,7 +34,7 @@ $ ipython kernel install --user --name="ifood_seu_lindo"
 
 Open your local Jupyter.
 
-If you don't have installed, please install:
+* If you don't have installed, please install:
 ```bash
 $ pip install jupyterlab
 ```
@@ -51,6 +51,7 @@ Select kernel `ifood_seu_lindo`
 ![parametters](prints/ikernel.png)
 
 Execute cell by cell as you wish.
+
 
 ## The test consist in two parts.
   
