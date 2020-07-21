@@ -8,7 +8,7 @@ To be able to test the process, a free AWS account was created with necessary us
 
 Check out: [Here](https://github.com/ifood/ifood-data-architect-test)
 
-## Getting Started
+## Local Getting Started
 
 The step by step are:
 
@@ -54,6 +54,8 @@ Execute cell by cell as you wish.
 
 
 ## The test consist in two parts.
+
+I created the "production" solution in Aws Glue, but there's several ways to do that.
   
 1. Source(transient) to Raw:
 
