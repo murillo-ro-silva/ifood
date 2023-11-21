@@ -1,12 +1,9 @@
-# iFood Data Architect Test Solve
+# Xablau Data Architect Test Solve
 
-The process was development using AWS.
+The process was developed using AWS.
 
-To be able to test the process, a free AWS account was created with necessary users and rules.
+To be able to test the process, a free AWS account was created with the necessary users and rules.
 
-## Test Requeriments
-
-Check out: [Here](https://github.com/ifood/ifood-data-architect-test)
 
 ## Local Getting Started
 
@@ -22,7 +19,7 @@ $ virtualenv -p python3 ~/Documents/ifood_test
 $ . ~/Documents/ifood_test/bin/activate
 ```
 
-* After install and activate the virtual env, please folow:
+* After installing and activate the virtual env, please follow:
 
 ```bash
 $ pip install pyspark==2.4.6
